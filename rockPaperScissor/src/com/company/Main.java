@@ -14,12 +14,13 @@ public class Main {
 
 
 
-        winnerHistory.add(0, "nothing");
+        winnerHistory.add(0, "History");
         computer.add(0,"'Ultra Computer'");
         System.out.println("Welcome challenger! State your name!");
         Scanner input = new Scanner(System.in);
         String playerName = input.nextLine();
         player.add(0, playerName);
+        System.out.println("What a stupid name! \n \n \n \n");
         System.out.println("You've stepped into the wrong place... You must play Rock, Paper, Scissor to succeed!");
         System.out.println("Your opponent is " + computer.get(0) + "!! 'BZZT BZZT PUNY HUMAN CANNOT WIN'" + "\n");
 
@@ -33,16 +34,21 @@ public class Main {
         String startGame = input.nextLine();
         String startGameclean = startGame.trim().toUpperCase();
         if (startGameclean.equals("Y")) {
-            System.out.println("It is time!");
+            System.out.println("It is time!\n");
 
             for (int i = player.size(); i < 500; i++) {
-                System.out.println("Round " + i);
-                System.out.println("Choose between 'rock', 'scissor', 'paper'");
+                System.out.println("\nRound " + i);
+                double windRate = Math.floor((Math.random() * 3.5d));
+                if (windRate==3){
+                    System.out.println("\nThe wind is fiercely blowing...\n");
+                } else {
+                    System.out.println("\nThe field is oddly calm...\n");
+                }
                 rockPaperScissor(i);
                 computerRPS(i);
-                System.out.println(player.get(0)+" has weakly shot forth a " + player.get(i) + "!" + computer.get(0) + " mightily fires a giant " + computer.get(i));
+                System.out.println(player.get(0)+" has weakly shot forth a stupid and tiny " + player.get(i) + "! " + computer.get(0) + " mightily fires a giant " + computer.get(i));
                 winnerHistory.add(i, winner(player.get(i), computer.get(i)));
-                System.out.println("To play again, press 'Y', if not, scream anything"+"\n");
+                System.out.println("\nTo play again, press 'Y', if not, scream anything"+"\n");
                 startGame = input.nextLine();
                 startGameclean = startGame.trim().toUpperCase();
                 if (startGameclean.equals("Y")) {
@@ -55,9 +61,9 @@ public class Main {
             }
 
         } else if (startGameclean.equals("H")){
-            System.out.println("\n"+"Hall of Fame?:");
+            System.out.println("\n"+"===\nHall of Fame?:\n===\n");
             for (int i = 1; i < player.size() ; i++) {
-                System.out.println(winnerHistory.get(i) + ": Player: " + player.get(i) + " vs. Computer: " + computer.get(i)+ "\n");
+                System.out.println(winnerHistory.get(i) + ": Player: " + player.get(i) + " vs. Computer: " + computer.get(i)+ "!!!\n");
             }
 
         } else {
@@ -77,10 +83,17 @@ public class Main {
 
 
 
-            System.out.println("Choose your weapon!");
+            System.out.println("Choose between 'rock'(r), 'scissor'(s), 'paper'(p)!!!");
             Scanner input = new Scanner(System.in);
             String in = input.nextLine();
             String inClean = in.trim().toLowerCase();
+            if (inClean.equals("p")){
+                inClean = "paper";
+            } else if (inClean.equals("s")){
+                inClean = "scissor";
+            } else if (inClean.equals("r")){
+                inClean = "rock";
+            }
             if (inClean.equals("rock")) {
                 player.add(g, "rock");
             } else if (inClean.equals("scissor")){
@@ -103,7 +116,7 @@ public class Main {
 
 
 
-            double result = Math.floor((Math.random() * 2.99d));
+            double result = Math.floor((Math.random() * 3d));
 
             if (result == 0) {
                 computer.add(g, "rock");
@@ -111,6 +124,8 @@ public class Main {
                 computer.add(g, "scissor");
             } else if (result == 2) {
                 computer.add(g, "paper");
+            } else {
+                computer.add(g, "laser beam");
             }
 
     }
@@ -132,6 +147,9 @@ public class Main {
                         System.out.println("You win! But " + computer.get(0) + " is unfazed!");
                         winnar = "Win";
                         break;
+                    case "laser beam":
+                        System.out.println("==========================\n\n------------------------------\n\n==========================\nYou have been annihilated. \n \n The End.");
+                        System.exit(0);
                 }
                 break;
             case "paper":
@@ -148,6 +166,9 @@ public class Main {
                         System.out.println("You win! But " + computer.get(0)+" is unfazed!");
                         winnar = "Win";
                         break;
+                    case "laser beam":
+                        System.out.println("==========================\n\n------------------------------\n\n==========================\nYou have been annihilated. \n \n The End.");
+                        System.exit(0);
                 }
                 break;
             case "scissor":
@@ -164,6 +185,9 @@ public class Main {
                         System.out.println("You win! But " + computer.get(0)+" is unfazed!");
                         winnar = "Win";
                         break;
+                    case "laser beam":
+                        System.out.println("==========================\n\n------------------------------\n\n==========================\nYou have been annihilated. \n \n The End.");
+                        System.exit(0);
                 }
                 break;
         }
