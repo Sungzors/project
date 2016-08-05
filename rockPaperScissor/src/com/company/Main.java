@@ -188,7 +188,7 @@ public class Main {
                         winnar = "Win";
                         break;
                     case "laser beam":
-                        System.out.println("==========================O\n\n*--------------------------\n\n==========================O\nYou have been annihilated. \n \n The End.");
+                        System.out.println("\n==========================O\n\n*--------------------------\n\n==========================O\nYou have been annihilated. \nThe End.");
                         System.exit(0);
                 }
                 break;
