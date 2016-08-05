@@ -39,9 +39,11 @@ public class Main {
             for (int i = player.size(); i < 500; i++) {
                 System.out.println("\nRound " + i);
                 double windRate = Math.floor((Math.random() * 3.5d));
-                if (windRate==3){
+                if (windRate == 3) {
                     System.out.println("\nThe wind is fiercely blowing...\n");
-                } else {
+                } else if (windRate == 2) {
+                    System.out.println("\nSweat drips down your forehead...\n");
+                }else {
                     System.out.println("\nThe field is oddly calm...\n");
                 }
                 rockPaperScissor(i);
@@ -89,7 +91,7 @@ public class Main {
             String inClean = in.trim().toLowerCase();
             if (inClean.equals("p")){
                 inClean = "paper";
-            } else if (inClean.equals("s")){
+            } else if (inClean.equals("s") || inClean.equals("scissors")){
                 inClean = "scissor";
             } else if (inClean.equals("r")){
                 inClean = "rock";
@@ -116,7 +118,7 @@ public class Main {
 
 
 
-            double result = Math.floor((Math.random() * 3d));
+            double result = Math.floor((Math.random() * 3.3d));
 
             if (result == 0) {
                 computer.add(g, "rock");
@@ -148,7 +150,7 @@ public class Main {
                         winnar = "Win";
                         break;
                     case "laser beam":
-                        System.out.println("==========================\n\n------------------------------\n\n==========================\nYou have been annihilated. \n \n The End.");
+                        System.out.println("==========================O\n\n*--------------------------\n\n==========================O\nYou have been annihilated. \n \n The End.");
                         System.exit(0);
                 }
                 break;
@@ -167,7 +169,7 @@ public class Main {
                         winnar = "Win";
                         break;
                     case "laser beam":
-                        System.out.println("==========================\n\n------------------------------\n\n==========================\nYou have been annihilated. \n \n The End.");
+                        System.out.println("==========================O\n\n*--------------------------\n\n==========================O\nYou have been annihilated. \n \n The End.");
                         System.exit(0);
                 }
                 break;
@@ -186,7 +188,7 @@ public class Main {
                         winnar = "Win";
                         break;
                     case "laser beam":
-                        System.out.println("==========================\n\n------------------------------\n\n==========================\nYou have been annihilated. \n \n The End.");
+                        System.out.println("==========================O\n\n*--------------------------\n\n==========================O\nYou have been annihilated. \n \n The End.");
                         System.exit(0);
                 }
                 break;
